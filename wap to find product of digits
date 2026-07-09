@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int num, originalNum;
+    int product = 1, remainder;
+
+    // Prompt the user for an integer
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    // Handle the special case where the input number itself is 0
+    if (num == 0) {
+        product = 0;
+    } else {
+        // Convert to positive if the user enters a negative number
+        if (num < 0) {
+            num = -num;
+        }
+
+        // Loop until all digits have been processed
+        while (num != 0) {
+            remainder = num % 10;  // Extract the last digit
+            product *= remainder;  // Multiply it to the running product
+            num /= 10;             // Remove the last digit
+        }
+    }
+
+    printf("The product of the digits of %d is: %d\n", originalNum, product);
+
+    return 0;
+}
