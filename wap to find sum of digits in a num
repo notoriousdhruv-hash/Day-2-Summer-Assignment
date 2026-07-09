@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+    int num, originalNum;
+    int sum = 0, remainder;
+
+    // Prompt the user for an integer
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+
+    originalNum = num;
+
+    // Convert to positive if the user enters a negative number
+    if (num < 0) {
+        num = -num;
+    }
+
+    // Loop until all digits have been processed
+    while (num != 0) {
+        // Step 1: Extract the last digit using the modulo operator
+        remainder = num % 10; 
+        
+        // Step 2: Add the extracted digit to the running sum
+        sum += remainder;     
+        
+        // Step 3: Remove the last digit using integer division
+        num /= 10;            
+    }
+
+    printf("The sum of the digits of %d is: %d\n", originalNum, sum);
+
+    return 0;
+}
